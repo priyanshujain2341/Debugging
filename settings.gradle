@@ -1,0 +1,2 @@
+rootProject.name = "Dubgging"
+include ':app'
