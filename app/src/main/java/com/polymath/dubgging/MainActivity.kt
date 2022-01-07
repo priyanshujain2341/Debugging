@@ -2,6 +2,7 @@ package com.polymath.dubgging
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -11,16 +12,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val myTextView: TextView = findViewById(R.id.hello_world)
+        myTextView.text = "Hello, Debugging!"
         logging()
         division()
     }
 
     private fun division() {
-        var numerator = 60
-        var denominator = 4
+        val numerator = 60
+        var denominator = 5
         repeat(4) {
+            Thread.sleep(3000)
             Log.d(TAG, "The denominator is: ${denominator}")
-            Log.v(TAG, "The value is ${numerator / denominator}")
+            findViewById<TextView>(R.id.hello_world).setText("${numerator/denominator}")
             denominator--
         }
     }
